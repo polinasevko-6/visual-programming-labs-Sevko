@@ -1,0 +1,97 @@
+[
+    {
+        "id": "538656db6fc4cd12",
+        "type": "tab",
+        "label": "04-change",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "887cb0744b06383e",
+        "type": "inject",
+        "z": "538656db6fc4cd12",
+        "name": "Inject for change",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ab2/sevko/change",
+        "payload": "Sevko",
+        "payloadType": "str",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "44066cd660179fa7"
+            ]
+        ]
+    },
+    {
+        "id": "44066cd660179fa7",
+        "type": "change",
+        "z": "538656db6fc4cd12",
+        "name": "Change Set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "lab2/sevko/modified",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "$now()",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Изменено в Change",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 90,
+        "y": 280,
+        "wires": [
+            [
+                "8b86411ba4caa316"
+            ]
+        ]
+    },
+    {
+        "id": "8b86411ba4caa316",
+        "type": "debug",
+        "z": "538656db6fc4cd12",
+        "name": "Debug Change",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 140,
+        "y": 360,
+        "wires": []
+    }
+]
