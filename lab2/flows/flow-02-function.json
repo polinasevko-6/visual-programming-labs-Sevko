@@ -1,0 +1,76 @@
+[
+    {
+        "id": "50f7c51cf7243a71",
+        "type": "tab",
+        "label": "02-function",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "98281f46acf697d6",
+        "type": "inject",
+        "z": "50f7c51cf7243a71",
+        "name": "Inject Sevko 42",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lab2/sevko/function",
+        "payload": "42",
+        "payloadType": "num",
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "75200ed994dfe15c"
+            ]
+        ]
+    },
+    {
+        "id": "75200ed994dfe15c",
+        "type": "function",
+        "z": "50f7c51cf7243a71",
+        "name": "Function Sevko",
+        "func": "let inputNumber = msg.payload;\n\nconst numbers = [10, 20, 30, 40, 50];\n\nconst info = {\n    author: \"Sevko\",\n    lab: \"lab2\",\n    task: \"function\"\n};\n\nlet category;\nif (typeof inputNumber === 'number') {\n    if (inputNumber > 0) {\n        category = \"положительное\";\n    } else if (inputNumber < 0) {\n        category = \"отрицательное\";\n    } else {\n        category = \"ноль\";\n    }\n} else {\n    category = \"не число\";\n}\n\nlet sum = 0;\nfor (let i = 0; i < numbers.length; i++) {\n    sum += numbers[i];\n}\n\nreturn {\n    payload: {\n        input: inputNumber,\n        category: category,\n        numbers: numbers,\n        sumOfNumbers: sum,\n        info: info\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 260,
+        "wires": [
+            [
+                "e98eacb9c1b94a5d"
+            ]
+        ]
+    },
+    {
+        "id": "e98eacb9c1b94a5d",
+        "type": "debug",
+        "z": "50f7c51cf7243a71",
+        "name": "Debug Sevko function",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 380,
+        "wires": []
+    }
+]
