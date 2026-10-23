@@ -1,0 +1,31 @@
+[
+    {
+        "id": "b476f44a86ec2295",
+        "type": "inject",
+        "z": "46f1296de7fe624d",
+        "name": "Inject 15",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lab2/sevko/switch",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "b19a7f95f6d7887b"
+            ]
+        ]
+    }
+]
