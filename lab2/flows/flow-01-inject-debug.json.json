@@ -1,0 +1,19 @@
+[
+    {
+        "id": "a0a1145a5bdab81c",
+        "type": "debug",
+        "z": "a801b727da6f5048",
+        "name": "Debug — Sevko",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 320,
+        "wires": []
+    }
+]
