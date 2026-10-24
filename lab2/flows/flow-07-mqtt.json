@@ -1,0 +1,19 @@
+[
+    {
+        "id": "3d8d0aeaa2e66a9d",
+        "type": "debug",
+        "z": "5a798e359139d646",
+        "name": "Debug MQTT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 520,
+        "wires": []
+    }
+]
