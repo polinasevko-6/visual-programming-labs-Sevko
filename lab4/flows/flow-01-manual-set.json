@@ -1,0 +1,95 @@
+{
+  "name": "01-manual-set-code",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        -80
+      ],
+      "id": "aa634203-7cc8-4ad4-97e3-6021bc43bd2c",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "441120d2-70b1-4488-b1e9-6eaede54955f",
+              "name": "payload",
+              "value": "Sevko",
+              "type": "string"
+            },
+            {
+              "id": "57310f7b-dd37-46f4-9c08-6c4007197da5",
+              "name": "topic",
+              "value": "lab4/sevko/basic",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        192,
+        -80
+      ],
+      "id": "15d0db9b-19dc-4947-b9e5-c7dde7fd6835",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log(\"Payload:\", $input.first().json.payload);\nconsole.log(\"Topic:\", $input.first().json.topic);\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        416,
+        -80
+      ],
+      "id": "91f63beb-10cc-4bfc-b77f-1c1251e52621",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "8fb1dd13-ecf6-4e6b-a707-767eee355176",
+  "meta": {
+    "instanceId": "1b2ba367c7372b065e972de5d4c2f2ec251d3706a85a81756964a6f3829c50fb"
+  },
+  "nodeGroups": [],
+  "id": "nI1IDCc7CZKDUH5H",
+  "tags": []
+}
