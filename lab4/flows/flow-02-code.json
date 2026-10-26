@@ -1,0 +1,77 @@
+{
+  "name": "02-code-node",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "16cdd89c-0351-4914-bb56-662f093b249e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Используем let и const\nlet name = \"Sevko\";\nconst labNumber = 4;\n\n// Создаем массив\nconst subjects = [\"n8n\", \"Docker\", \"Redis\"];\n\n// Объект\nconst result = {\n  author: name,\n  lab: labNumber,\n  subjects: []\n};\n\n// Цикл for\nfor (let i = 0; i < subjects.length; i++) {\n  // Условие if/else\n  if (subjects[i].length > 4) {\n    result.subjects.push(subjects[i] + \" (длинное)\");\n  } else {\n    result.subjects.push(subjects[i] + \" (короткое)\");\n  }\n}\n\n// Возвращаем объект с полем payload\nreturn {\n  payload: result\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "b24b88fe-ab92-4461-bed1-a01303df67da",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "d425b653-b28f-4958-ae19-a1f4d85aa031",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "d35fff06-8258-4e20-8bad-60027eb166dc",
+  "meta": {
+    "instanceId": "1b2ba367c7372b065e972de5d4c2f2ec251d3706a85a81756964a6f3829c50fb"
+  },
+  "nodeGroups": [],
+  "id": "Vmm5HC4QDRYq8Jrz",
+  "tags": []
+}
