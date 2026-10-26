@@ -1,0 +1,63 @@
+{
+  "name": "06",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "31ac59e6-04b1-4d70-893e-5e4597afda88",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  payload: {\n    currentTime: new Date().toISOString(),\n    message: \"Schedule trigger worked\"\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "897f82e8-a5de-40be-8b77-e6a1e3da0070",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "a812ae29-7c9f-4fad-a853-aa21737d038c",
+  "meta": {
+    "instanceId": "1b2ba367c7372b065e972de5d4c2f2ec251d3706a85a81756964a6f3829c50fb"
+  },
+  "nodeGroups": [],
+  "id": "iP1FTtviwuJXkCs6",
+  "tags": []
+}
