@@ -1,0 +1,119 @@
+{
+  "name": "08-redis",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bd02d769-81e4-442e-91e8-128803342492",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "sevko"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "4c6e9cf8-0daf-48a3-adbd-1ebc8fdbe110",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "4JeZvMcVKeVMlzAt",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "sevko",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "a1717e3d-dd80-45f0-86ed-04946b13a206",
+      "name": "Redis1",
+      "credentials": {
+        "redis": {
+          "id": "4JeZvMcVKeVMlzAt",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        0
+      ],
+      "id": "11482b3e-f30f-4d8a-b78b-83d81d9d843b",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Redis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "bf4e5fc9-2e43-4d2a-9155-a8f0df661e00",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1b2ba367c7372b065e972de5d4c2f2ec251d3706a85a81756964a6f3829c50fb"
+  },
+  "nodeGroups": [],
+  "id": "dvvXcdPQwIgjvfGk",
+  "tags": []
+}
